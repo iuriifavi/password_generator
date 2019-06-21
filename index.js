@@ -1,7 +1,7 @@
 'use strict';
 
 var generate = (function () {
-  const bigL = new Array(26).fill(65).map((x,i) => String.fromCharCode(x+i)); //[A-Z]
+  const bigL = Array(26).fill(65).map((x,i) => String.fromCharCode(x+i)); //[A-Z]
   const lowerL = Array(26).fill(65 + 32).map((x,i) => String.fromCharCode(x+i)); //[a-z]
   const nums = [0,1 ,2, 3, 4, 5, 6, 7, 8, 9];
   const special = [...'!@#$%^&*'];
