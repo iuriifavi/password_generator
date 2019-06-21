@@ -11,10 +11,10 @@ var generate = (function () {
   return function(length, occurance, categories) {
     categories = categories || defaultCategories;
 
-    const maxLength = categories.reduce( (sum, cat) => sum + Math.min(cat.length,occurance), 0);
+    const maxLength = categories.reduce( ([total, min], cat) => [total + cat.length, min + Math.min(cat.length,occurance)], [0, 0]);
 
     //there is no possible passwords
-    if (maxLength < length) return;
+    if (maxLength[0] < length || maxLength[1] < length) return;
 
     let password = [] ;
     let lastCategory;
